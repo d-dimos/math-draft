@@ -1,11 +1,6 @@
 ---
 layout: default
-title: Home
+title: Dummy Title
 ---
 
-# 🧮 Math Notes
-
-Welcome! Choose a topic:
-
-- [Differential Dynamic Programming]({{ site.baseurl }}/topics/ddp/)
-- [Topics Index]({{ site.baseurl }}/topics/)
+# Dummy Content
