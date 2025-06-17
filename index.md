@@ -5,8 +5,14 @@ title: Topics
 
 # Topics
 
-{% for page in site.pages %}
-  {% if page.dir == '/topics/' and page.name != 'index.md' %}
+Below are the available mathematical topics:
+
+{% assign topic_pages = site.pages | where_exp: "page", "page.path contains 'topics/'" | where_exp: "page", "page.name != 'index.md'" | sort: "title" %}
+
+{% for page in topic_pages %}
 - [{{ page.title }}]({{ site.baseurl }}{{ page.url }})
-  {% endif %}
-{% endfor %} 
+{% endfor %}
+
+{% if topic_pages.size == 0 %}
+*No topics available yet.*
+{% endif %} 
