@@ -1,6 +1,6 @@
-title: Math Notes
+title: simple
 description: A collection of mathematical notes and topics
-baseurl: "/math-draft"
+baseurl: "/simple"
 url: "https://dimos.github.io"
 theme: minima           
 kramdown:
