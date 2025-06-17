@@ -5,6 +5,11 @@ url: "https://dimos.github.io"
 theme: minima           
 kramdown:
   math_engine: mathjax
+  math_engine_opts:
+    preview: true
+    preview_as_code: false
+  input: GFM
+  syntax_highlighter: rouge
 
 # Build settings
 markdown: kramdown
