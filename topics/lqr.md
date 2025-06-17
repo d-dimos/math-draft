@@ -2,6 +2,7 @@
 layout: default
 title: LQR
 permalink: /topics/lqr/
+exclude: true
 ---
 
 # Linear Quadratic Regulator (LQR)

@@ -32,3 +32,11 @@ exclude:
 # Include files that start with underscore
 include:
   - _pages
+
+# Header navigation configuration
+header_pages:
+  - index.md
+
+# Exclude topic pages from navigation
+exclude_from_nav:
+  - topics/
