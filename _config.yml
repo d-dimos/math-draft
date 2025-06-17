@@ -34,8 +34,7 @@ include:
   - _pages
 
 # Header navigation configuration
-header_pages:
-  - index.md
+header_pages: []
 
 # Exclude topic pages from navigation
 exclude_from_nav:

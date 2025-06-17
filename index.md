@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Contents
-exclude: true
 ---
 
 # Contents
