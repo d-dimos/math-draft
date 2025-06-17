@@ -1,8 +1,2 @@
 title: Math Notes
-
-# use the newest Minima directly from GitHub
-remote_theme: jekyll/minima
-plugins: [jekyll-remote-theme]
-
-kramdown:
-  math_engine: mathjax   # tell the Markdown parser we’re using MathJax
+theme: minima           
