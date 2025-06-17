@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Contents
+title: •
 exclude: true
 ---
 
