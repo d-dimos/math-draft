@@ -7,7 +7,7 @@ exclude: true
 
 # Linear Quadratic Regulator (LQR)
 
-## Introduction
+<!-- ## Introduction
 
 Linear Quadratic Regulator (LQR) is an optimal control technique used in control theory to find the optimal control law for a linear system with a quadratic cost function.
 
@@ -38,4 +38,5 @@ $$u^*(t) = -Kx(t)$$
 
 where $K = R^{-1}B^TP$ and $P$ is the solution to the algebraic Riccati equation:
 
-$$A^TP + PA - PBR^{-1}B^TP + Q = 0$$ 
+$$A^TP + PA - PBR^{-1}B^TP + Q = 0$$  -->
+
