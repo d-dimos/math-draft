@@ -1,2 +1,14 @@
 title: Math Notes
-theme: minima           
+# ─────────────────────────────────────────────
+remote_theme: jekyll/minima          # ← pulls Minima straight from GitHub
+plugins: [jekyll-remote-theme]       # required for remote_theme on GH Pages
+# ─────────────────────────────────────────────
+minima:                              
+  skin: auto                         # “auto”, “dark”, “solarized”, etc.
+  social_links: []                   # hide GitHub / Twitter icons
+# optional nav bar items
+header_pages:
+  - index.md
+# ─────────────────────────────────────────────
+kramdown:                            # let Markdown know we use MathJax
+  math_engine: mathjax
