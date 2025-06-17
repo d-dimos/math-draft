@@ -1,5 +1,5 @@
 title: Simple
-description: A collection of mathematical notes and topics
+# description: A collection of mathematical notes and topics
 baseurl: "/math-draft"
 url: "https://dimos.github.io"
 theme: minima           
