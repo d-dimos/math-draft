@@ -1,6 +1,6 @@
 title: Control Freak
 # description: A collection of mathematical notes and topics
-baseurl: "/control-freak"
+baseurl: "/math-draft"
 url: "https://dimos.github.io"
 theme: minima           
 kramdown:
