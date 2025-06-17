@@ -1,11 +1,9 @@
 ---
 layout: default
-title: Topics
+title: Contents
 ---
 
-# Topics
-
-Below are the available mathematical topics:
+# Contents
 
 {% assign topic_pages = site.pages | where_exp: "page", "page.path contains 'topics/'" | where_exp: "page", "page.name != 'index.md'" | sort: "title" %}
 
@@ -14,5 +12,5 @@ Below are the available mathematical topics:
 {% endfor %}
 
 {% if topic_pages.size == 0 %}
-*No topics available yet.*
+*No contents available yet.*
 {% endif %} 
