@@ -1,7 +1,12 @@
 ---
 layout: default
-title: LQR
-permalink: /topics/lqr/
+title: Topics
 ---
 
-# LQR Dummy Content 
+# Topics
+
+{% for page in site.pages %}
+  {% if page.dir == '/topics/' and page.name != 'index.md' %}
+- [{{ page.title }}]({{ site.baseurl }}{{ page.url }})
+  {% endif %}
+{% endfor %} 
