@@ -7,4 +7,5 @@ title: Home
 
 Welcome! Choose a topic:
 
-- [Differential Dynamic Programming](/topics/ddp/)
+- [Differential Dynamic Programming]({{ site.baseurl }}/topics/ddp/)
+- [Topics Index]({{ site.baseurl }}/topics/)

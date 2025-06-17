@@ -1,4 +1,29 @@
 title: Math Notes
+description: A collection of mathematical notes and topics
+baseurl: "/math-draft"
+url: "https://dimos.github.io"
 theme: minima           
 kramdown:
   math_engine: mathjax
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - README.md
+  - .gitignore
+  - .git/
+  - Gemfile
+  - Gemfile.lock
+
+# Include files that start with underscore
+include:
+  - _pages
