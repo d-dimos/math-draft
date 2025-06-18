@@ -54,7 +54,7 @@ A $\textit{policy}$ (or control law) $\pi$ is a mapping $\pi : \mathcal{X} \to \
 $\textbf{Posing LQR as a DP problem}$
 
 To approach the problem, we define the time-indexed $\textbf{value function}$
-$V_k^{\pi} : \mathcal{X} \to \mathbb{R}$ as the remaining cost when the system is in state $x_k$ at time $k$ and the policy $\pi$ is followed thereafter (this quantity is also called the $\textit{cost-to-go}$):
+$V_k^{\pi} : \mathcal{X} \to \mathbb{R}$ as the remaining cost when the system is in state $x_k$ at time $k$ and the policy $\pi$ is followed thereafter:
 
 $$
 V_k^{\pi}(x_k) = J(x_{k+1}^K, u_k^{K-1}; x_k).
@@ -74,16 +74,19 @@ $$
 
 By definition, $J(x_1^K, u_0^{K-1} ; x_0) = V_0^{\pi}(x_0)$.
 
-We call optimal value function $V^*_k$ the function yielded by following the optimal policy $\pi^*$ from timestep $k$ and forward.
+We call optimal value function $V^*_k(x)$ the function yielded by following the optimal policy $\pi^*$ from timestep $k$ and forward. The optimal value function is also called the $\textit{cost-to-go}$, and we denote it from now on as simply $V_k(x)$.
 
-We care about the value function, because it is 
+The Principle of Optimality is an inherent structural property of the LQR problem, i.e. any tail of an optimal policy must still be optimal. More explicitly, if $\pi_1 = [u_1, u_2, \dots, u_{K}]$ is an optimal policy over $K$ steps, then $\pi_2 = [u_2, \dots, u_{K}]$ is also optimal over the remaining $K-1$ steps. Therefore, the optimal policy when in state $x_0$ is the one that yields the minimum sum of running cost and cost-to-go from the next state.
 
-We observe that the value function at timestep $k$ does not depend on the policy we followed to reach $x_k$. Given that we are at state $x_k$ the optimal policy minimizes the cost regardless of the past states.
-
-Therefore, the optimality of the value function also does not depend on whether the value funmctions of our past steps were optimal or not. This is an important property because it provides our problem with a useful structure: if we know the optimal value function of timestep $k+1$ we can pick the control $u_k$ that minimizes the value function of timestep $k$.
+Mathematically:
 
 $$
-V^*_k(x_k) = \min_{u_k} \\\{q_k(x_k, u_k) + V^*_{k+1}{f(x_k, u_k)} \\\}
+\begin{equation}
+\begin{aligned}
+V^*_k(x_k) = \min_{u_k} \\\{q_k(x_k, u_k) + V^*_{k+1} \Big({f(x_k, u_k)}\Big) \\\}
+\end{aligned}
+\end{equation}
 $$
 
 
+Equation (2) is the Bellman equation (or the discrete time Hamilton-Jacobi-Bellman equation). 
