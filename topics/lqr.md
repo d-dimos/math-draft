@@ -51,9 +51,9 @@ $$
 
 A $\textit{policy}$ (or control law) $\pi$ is a mapping $\pi : \mathcal{X} \to \mathcal{U}$ such that $u_k = \pi(x_k)$. The policy that minimizes $J$ is the $\textit{optimal policy}$ and is denoted $\pi^{\ast}$. Its associated control sequence is $\\\{u_k^*\\\}_{k=1}^{K-1}$. 
 
-$\textbf{DP principles applied to LQR}$
+$\textbf{Posing LQR as a DP problem}$
 
-To solve the finite-horizon problem we employ Dynamic Programming. For a given policy $\pi$ we define the time-indexed $\textbf{value function}$
+To approach the problem, we define the time-indexed $\textbf{value function}$
 $V_k^{\pi} : \mathcal{X} \to \mathbb{R}$ as the remaining cost when the system is in state $x_k$ at time $k$ and the policy $\pi$ is followed thereafter (this quantity is also called the $\textit{cost-to-go}$):
 
 $$
@@ -74,5 +74,16 @@ $$
 
 By definition, $J(x_1^K, u_0^{K-1} ; x_0) = V_0^{\pi}(x_0)$.
 
+We call optimal value function $V^*_k$ the function yielded by following the optimal policy $\pi^*$ from timestep $k$ and forward.
+
+We care about the value function, because it is 
+
+We observe that the value function at timestep $k$ does not depend on the policy we followed to reach $x_k$. Given that we are at state $x_k$ the optimal policy minimizes the cost regardless of the past states.
+
+Therefore, the optimality of the value function also does not depend on whether the value funmctions of our past steps were optimal or not. This is an important property because it provides our problem with a useful structure: if we know the optimal value function of timestep $k+1$ we can pick the control $u_k$ that minimizes the value function of timestep $k$.
+
+$$
+V^*_k(x_k) = \min_{u_k} \\\{q_k(x_k, u_k) + V^*_{k+1}{f(x_k, u_k)} \\\}
+$$
 
 
