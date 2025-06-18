@@ -51,10 +51,10 @@ $$
 
 A $\textit{policy}$ (or control law) $\pi$ is a mapping $\pi : \mathcal{X} \to \mathcal{U}$ such that $u_k = \pi(x_k)$. The policy that minimizes $J$ is the $\textit{optimal policy}$ and is denoted $\pi^{\ast}$. Its associated control sequence is $\\\{u_k^*\\\}_{k=0}^{K-1}$. 
 
-$\textbf{Posing LQR as a DP problem}$
+$\textbf{Dynamic-Programming Formulation}$
 
 To approach the problem, we define the time-indexed optimal $\textbf{value function}$
-$V_k : \mathcal{X} \to \mathbb{R}$ as the minimum cost-to-go from state $x$ at time $k$. This is the minimum cost achievable starting from state $x_k=x$ at time step $k$:
+$V_k : \mathcal{X} \to \mathbb{R}$ as the minimum cost-to-go from state $x$ at time $k$:
 
 $$
 V_k(x) = \min_{u_k, \dots, u_{K-1}} \bigg\{q_K(x_K) + \sum_{i=k}^{K-1}q_i(x_i, u_i) \bigg\}
