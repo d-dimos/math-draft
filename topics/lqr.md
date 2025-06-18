@@ -75,4 +75,4 @@ V_k(x_k) = \min_{u_k} \bigg\{q_k(x_k, u_k) + V_{k+1} \Big({f(x_k, u_k)}\Big) \bi
 $$
 
 
-also known as the $\textbf{{discrete-time Hamilton-Jacobi-Bellman equation}}$. 
+also known as the $\textbf{discrete-time Hamilton-Jacobi-Bellman equation}$. 
