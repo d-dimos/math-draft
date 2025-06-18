@@ -23,10 +23,7 @@ $\textbf{Cost function}$
 
 $$J(x_1^K, u_0^{K-1} ; x_0) = q_K(x_K) + \sum_{k=0}^{K-1}q_k(x_k, u_k)$$
 
-where $q_k(x_k, u_k) = x_k^TQ_kx_k + u_k^TR_ku_k$ and $q_K(x_K) = x_K^TQ_Kx_K$.
-
-
-The term $q_K(x_K)$ is called the $\textit{terminal cost}$ and $q_k(x_k, u_k)$ is called the $\textit{running cost}$ at time step $k$.
+where $\underbrace{q_k(x_k, u_k) = x_k^TQ_kx_k + u_k^TR_ku_k}_{\text{running cost}}$ and $\underbrace{q_K(x_K) = x_K^TQ_Kx_K}_{\text{terminal cost}}$.
 
 We note that LQR allows us to define time-variant cost matrices.
 
