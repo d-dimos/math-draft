@@ -43,7 +43,7 @@ $$
 \end{equation}
 $$
 
-A $\textit{policy}$ (or control law) $\pi$ is a sequence of mappings $\pi_k : \mathcal{X} \to \mathcal{U}$ such that $u_k = \pi_k(x_k)$. The policy that minimizes $J$ is the $\textit{optimal policy}$ and is denoted $\pi^{\ast}$. Its associated control sequence is $\{u_k^{\ast}\}_{k=0}^{K-1}$. 
+A $\textit{policy}$ (or control law) $\pi$ is a sequence of mappings $\pi_k : \mathcal{X} \to \mathcal{U}$ such that $u_k = \pi_k(x_k)$. The policy that minimizes $J$ is the $\textit{optimal policy}$ and is denoted $\pi^{\ast}$. Its associated control sequence is $\{u_k^*\}_{k=0}^{K-1}$. 
 
 $\textbf{DP principles applied to LQR}$
 
