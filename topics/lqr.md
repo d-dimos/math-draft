@@ -83,7 +83,7 @@ Mathematically:
 $$
 \begin{equation}
 \begin{aligned}
-V^*_k(x_k) = \min_{u_k} \\\{q_k(x_k, u_k) + V^*_{k+1} \Big({f(x_k, u_k)}\Big) \\\}
+V^*_k(x_k) = \min_{u_k} \\\{q_k(x_k, u_k) + V^*_{k+1} \Big({f(x_k, u_k)}\Big) \}
 \end{aligned}
 \end{equation}
 $$
