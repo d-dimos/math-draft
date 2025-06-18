@@ -64,7 +64,7 @@ The value function at the last time step $K$ is then: $V_K(x_K) = x_K^TQ_Kx_K$.
 
 The problem has an optimal substructure, which allows us to apply the Principle of Optimality. This principle states that an optimal policy has the property that whatever the initial state and initial decision are, the remaining decisions must constitute an optimal policy with regard to the state resulting from the first decision.
 
-This leads to the recursive equation known as the Bellman equation:
+This leads to the recursive equation known as the $\textbf{Bellman equation}$:
 
 $$
 \begin{equation}
@@ -75,4 +75,4 @@ V_k(x_k) = \min_{u_k} \bigg\{q_k(x_k, u_k) + V_{k+1} \Big({f(x_k, u_k)}\Big) \bi
 $$
 
 
-also known as the discrete-time Hamilton-Jacobi-Bellman equation. 
+also known as the $\textbf{{discrete-time Hamilton-Jacobi-Bellman equation}}$. 
