@@ -74,7 +74,7 @@ $$
 
 By definition, $J(x_1^K, u_0^{K-1} ; x_0) = V_0^{\pi}(x_0)$.
 
-We call optimal value function $V^*_k(x)$ the function yielded by following the optimal policy $\pi^*$ from timestep $k$ and forward. The optimal value function is also called the $\textit{cost-to-go}$, and we denote it from now on as simply $V_k(x)$.
+We call optimal value function  the function yielded by following the optimal policy $\pi^*$ from timestep $k$ and forward. The optimal value function is also called the $\textit{cost-to-go}$, and we denote it from now on as simply $V_k(x)$.
 
 The Principle of Optimality is an inherent structural property of the LQR problem, i.e. any tail of an optimal policy must still be optimal. More explicitly, if $\pi_1 = [u_1, u_2, \dots, u_{K}]$ is an optimal policy over $K$ steps, then $\pi_2 = [u_2, \dots, u_{K}]$ is also optimal over the remaining $K-1$ steps. Therefore, the optimal policy when in state $x_0$ is the one that yields the minimum sum of running cost and cost-to-go from the next state.
 
@@ -83,7 +83,7 @@ Mathematically:
 $$
 \begin{equation}
 \begin{aligned}
-V^*_k(x_k) = \min_{u_k} \\\{q_k(x_k, u_k) + V^*_{k+1} \Big({f(x_k, u_k)}\Big) \}
+V^*_k(x_k) = \min_{u_k} \{q_k(x_k, u_k) + V^*_{k+1} \Big({f(x_k, u_k)}\Big) \}
 \end{aligned}
 \end{equation}
 $$
