@@ -7,11 +7,9 @@ exclude: true
 
 # Linear Quadratic Regulator (LQR)
 
-## Introduction
+$\textbf{Introduction}$
 
 LQR is an optimal control algorithm. It uses Dynamic Programming (DP) to compute optimal feedback controls for $\textbf{discrete}$ systems that are $\textbf{linear}$ and cost functions that are $\textbf{quadratic}$. LQR assumes a $\textbf{finite}$ time horizon $K$.
-
-## Problem Formulation
 
 $\textbf{System Dynamics}$
 
@@ -50,7 +48,7 @@ $$
 
 A $\textit{policy}$ (or control law) $\pi$ is a sequence of mappings $\pi_k : \mathcal{X} \to \mathcal{U}$ such that $u_k = \pi_k(x_k)$. The policy that minimizes $J$ is the $\textit{optimal policy}$ and is denoted $\pi^{\ast}$. Its associated control sequence is $\{u_k^{\ast}\}_{k=0}^{K-1}$. 
 
-## DP principles applied to LQR
+$\textbf{DP principles applied to LQR}$
 
 To solve the finite-horizon problem we employ Dynamic Programming. For a given policy $\pi$ we define the time-indexed $\textbf{value function}$
 $V_k^{\pi} : \mathcal{X} \to \mathbb{R}$ as the remaining cost when the system is in state $x_k$ at time $k$ and the policy $\pi$ is followed thereafter (this quantity is also called the $\textit{cost-to-go}$):
