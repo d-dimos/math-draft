@@ -23,7 +23,10 @@ $\textbf{Cost function}$
 
 $$J(x_1^K, u_0^{K-1} ; x_0) = q_K(x_K) + \sum_{k=0}^{K-1}q(x_k, u_k)$$
 
-where $q(x_k, u_k) = x_k^TQx_k + u_k^TRu_k$ and $q_K(x_K) = x_K^TQ_Kx_K$. The term $q_K(x_K)$ is called the $\textit{terminal cost}$ and $q(x_k, u_k)$ is called the $\textit{running cost}$ at time step $k$.
+where $q(x_k, u_k) = x_k^TQx_k + u_k^TRu_k$ and $q_K(x_K) = x_K^TQ_Kx_K$.
+
+
+The term $q_K(x_K)$ is called the $\textit{terminal cost}$ and $q(x_k, u_k)$ is called the $\textit{running cost}$ at time step $k$.
 
 The cost function $J$ is typically chosen (tuned) by selecting appropriate matrices $Q$ and $R$. For the LQR problem to be well-posed, $Q \succcurlyeq 0$ (positive semi-definite) and $R \succ 0$ (positive definite). These conditions ensure the cost function is bounded below and that the optimal control is unique.
 
