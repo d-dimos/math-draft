@@ -14,6 +14,7 @@ LQR is an optimal control algorithm. It uses Dynamic Programming (DP) to compute
 $\textbf{System Dynamics}$
 
 $$x_{k+1} = Ax_k + Bu_k$$
+
 $$x_k \in \mathcal{X}, u_k \in \mathcal{U}$$
 
 The states and controls are real vectors and $A$ and $B$ are appropriately sized real matrices.
