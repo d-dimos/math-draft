@@ -37,7 +37,7 @@ The cost function $J$ is typically chosen (tuned) by selecting appropriate matri
 
 $\textbf{Optimization Problem}$
 
-Our aim is to compute a trajectory $\{x_k,  u_k\}$, which starts from a given state $x_0$ and minimizes $J$ given the system dynamics:
+Our aim is to compute a trajectory $\\\{x_k,  u_k\\\}$, which starts from a given state $x_0$ and minimizes $J$ given the system dynamics:
 
 $$
 \begin{equation}
@@ -49,7 +49,7 @@ $$
 \end{equation}
 $$
 
-A $\textit{policy}$ (or control law) $\pi$ is a mapping $\pi : \mathcal{X} \to \mathcal{U}$ such that $u_k = \pi(x_k)$. The policy that minimizes $J$ is the $\textit{optimal policy}$ and is denoted $\pi^{\ast}$. Its associated control sequence is $\{u_k^*\}_{k=1}^{K-1}$. 
+A $\textit{policy}$ (or control law) $\pi$ is a mapping $\pi : \mathcal{X} \to \mathcal{U}$ such that $u_k = \pi(x_k)$. The policy that minimizes $J$ is the $\textit{optimal policy}$ and is denoted $\pi^{\ast}$. Its associated control sequence is $\\\{u_k^*\\\}_{k=1}^{K-1}$. 
 
 $\textbf{DP principles applied to LQR}$
 
