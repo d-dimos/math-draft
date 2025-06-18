@@ -57,19 +57,19 @@ To approach the problem, we define the time-indexed $\textbf{value function}$
 $V_k^{\pi} : \mathcal{X} \to \mathbb{R}$ as the remaining cost when the system is in state $x_k$ at time $k$ and the policy $\pi$ is followed thereafter:
 
 $$
-V_k^{\pi}(x_k) = J(x_{k+1}^K, u_k^{K-1}; x_k).
+V_k^{\pi}(x_k) = J(x_{k+1}^K, u_k^{K-1}; x_k)
 $$
 
 Equivalently:
 
 $$
-V_k^{\pi}(x_k) = q_K(x_K) + \sum_{i=k}^{K-1} q_i(x_i, u_i).
+V_k^{\pi}(x_k) = q_K(x_K) + \sum_{i=k}^{K-1} q_i(x_i, u_i)
 $$
 
 We can rewrite the above expression using recursion:
 
 $$
-V_k^{\pi}(x_k) = q_k(x_k, u_k) + V_{k+1}^{\pi}(x_{k+1}).
+V_k^{\pi}(x_k) = q_k(x_k, u_k) + V_{k+1}^{\pi}(x_{k+1})
 $$
 
 By definition, $J(x_1^K, u_0^{K-1} ; x_0) = V_0^{\pi}(x_0)$.
