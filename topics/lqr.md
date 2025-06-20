@@ -79,6 +79,7 @@ also known as the $\textbf{discrete-time Hamilton-Jacobi-Bellman equation}$.
 
 
 ---
+---
 $\textbf{Why the LQR matrices are assumed symmetric WLOG}$
 
 <a name="symmetric-matrices"></a>
