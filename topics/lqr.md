@@ -33,7 +33,7 @@ $$\underbrace{q_K(x_K) = x_K^TQ_Kx_K}_{\text{terminal cost}}$$
 
 We note that in LQR we may also define time-varying cost matrices.
 
-The cost function $J$ is typically chosen (tuned) by selecting appropriate matrices $Q_k$ and $R_k$. For the LQR problem to be well-posed, $Q_k \succcurlyeq 0$ (positive semi-definite) and $R_k \succ 0$ (positive definite). These conditions ensure the cost function is bounded below and that the minimizer is unique. Additionally, without loss of generality we assume that $Q=Q^T$ and $R=R^T$. We explain this [here](../cheatsheet.md/#nonlinear-system).
+The cost function $J$ is typically chosen (tuned) by selecting appropriate matrices $Q_k$ and $R_k$. For the LQR problem to be well-posed, $Q_k \succcurlyeq 0$ (positive semi-definite) and $R_k \succ 0$ (positive definite). These conditions ensure the cost function is bounded below and that the minimizer is unique. Additionally, without loss of generality we assume that $Q=Q^T$ and $R=R^T$. We explain this [here](../cheatsheet/#nonlinear-system).
 
 $\textbf{Optimization Problem}$
 
