@@ -33,7 +33,7 @@ $$\underbrace{q_K(x_K) = x_K^TQ_Kx_K}_{\text{terminal cost}}$$
 
 We note that in LQR we may also define time-varying cost matrices.
 
-The cost function $J$ is typically chosen (tuned) by selecting appropriate matrices $Q_k$ and $R_k$. For the LQR problem to be well-posed, $Q_k \succcurlyeq 0$ (positive semi-definite) and $R_k \succ 0$ (positive definite). These conditions ensure the cost function is bounded below and that the minimizer is unique. Additionally, without loss of generality we assume that $Q=Q^T$ and $R=R^T$. We explain this [here](../cheatsheet/#nonlinear-system).
+The cost function $J$ is typically chosen (tuned) by selecting appropriate matrices $Q_k$ and $R_k$. For the LQR problem to be well-posed, $Q_k \succcurlyeq 0$ (positive semi-definite) and $R_k \succ 0$ (positive definite). These conditions ensure the cost function is bounded below and that the minimizer is unique. Additionally, without loss of generality we assume that $Q=Q^T$ and $R=R^T$. We explain this [here](./#symmetric-matrices).
 
 $\textbf{Optimization Problem}$
 
@@ -76,3 +76,34 @@ $$
 
 
 also known as the $\textbf{discrete-time Hamilton-Jacobi-Bellman equation}$. 
+
+
+---
+$\textbf{Why the LQR matrices are assumed symmetric WLOG}$
+
+<a name="symmetric-matrices"></a>
+Running cost and terminal cost are defined as:
+
+$$q_k(x_k, u_k) = x_k^T Q_k x_k + u_k^T R_k u_k$$
+
+$$q_K(x_K) = x_K^T Q_K x_K$$
+
+where we assume $Q_k$ and $R_k$ are symmetric. This does not violate generality and the reason is the following.
+
+Suppose $Q_k$ is not symmetric, then we can write:
+
+$$Q_k = \underbrace{\frac{Q_k + Q_k^T}{2}}_{Q_{sym}} + \underbrace{\frac{Q_k - Q_k^T}{2}}_{Q_{skew}}$$
+
+where $Q_{sym}$ is a symmetric matrix and $Q_{skew} = -Q_{skew}^T$ is a skew-symmetric matrix. We have that:
+
+$$
+Q_{skew} = -Q_{skew}^T \implies x_k^T Q_{skew} x_k = 0
+$$
+
+Therefore:
+
+$$
+x_k^T Q_k x_k = x_k^T Q_{sym} x_k + \underbrace{x_k^T Q_{skew} x_k}_{=0} = x_k^T Q_{sym} x_k
+$$
+
+the skew-symmetric part of $Q_k$ does not affect the cost function and we can safely assume $Q_k$ is symmetric.
