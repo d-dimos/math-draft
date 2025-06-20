@@ -84,9 +84,9 @@ $\textbf{Why the LQR matrices are assumed symmetric WLOG}$
 <a name="symmetric-matrices"></a>
 Running cost and terminal cost are defined as:
 
-$$q_k(x_k, u_k) = x_k^T Q_k x_k + u_k^T R_k u_k$$
-
-$$q_K(x_K) = x_K^T Q_K x_K$$
+$$q_k(x_k, u_k) = x_k^T Q_k x_k + u_k^T R_k u_k,
+\qquad
+q_K(x_K) = x_K^T Q_K x_K$$
 
 where we assume $Q_k$ and $R_k$ are symmetric. This does not violate generality and the reason is the following.
 
