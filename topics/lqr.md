@@ -77,10 +77,93 @@ $$
 
 also known as the $\textbf{discrete-time Hamilton-Jacobi-Bellman equation}$. 
 
+$\textbf{Solving the Bellman Equation}$
+
+Substituting the system dynamics and the running cost into the Bellman equation, we get:
+
+$$
+V_k(x_k) = \min_{u_k} \bigg\{x_k^TQ_kx_k + u_k^TR_ku_k + V_{k+1} \Big({Ax_k + Bu_k}\Big) \bigg\}
+$$
+
+Let us solve this for $k=K-1$:
+
+$$
+\begin{aligned}
+V_{K-1}(x_{K-1}) &= \min_{u_{K-1}} \bigg\{x_{K-1}^TQ_{K-1}x_{K-1} + u_{K-1}^TR_{K-1}u_{K-1} + V_{K} \Big({Ax_{K-1} + Bu_{K-1}}\Big) \bigg\} \\
+&= \min_{u_{K-1}} \bigg\{x_{K-1}^TQ_{K-1}x_{K-1} + u_{K-1}^TR_{K-1}u_{K-1} + (Ax_{K-1} + Bu_{K-1})^TQ_K(Ax_{K-1} + Bu_{K-1}) \bigg\}
+\end{aligned}
+$$
+
+
+To compute $u_{k-1}$ we set the gradient of the quantity inside the minimization with respect to $u_{k-1}$ to zero:
+
+$$
+\begin{aligned}
+
+\nabla_{u_{K-1}} \bigg\{x_{K-1}^TQ_{K-1}x_{K-1} + u_{K-1}^TR_{K-1}u_{K-1} + (Ax_{K-1} + Bu_{K-1})^TQ_K(Ax_{K-1} + Bu_{K-1}) \bigg\} &= 0 \\
+
+\nabla_{u_{K-1}} \bigg\{u_{K-1}^TR_{K-1}u_{K-1} + (Ax_{K-1} + Bu_{K-1})^TQ_K(Ax_{K-1} + Bu_{K-1}) \bigg\} &= 0 \\
+
+(R_{K-1} + R_{K-1}^T)u_{K-1} + 
+\nabla_{u_{K-1}} \bigg\{(Ax_{K-1} + Bu_{K-1})^TQ_K(Ax_{K-1} + Bu_{K-1}) \bigg\} &= 0 \\
+
+2R_{K-1}u_{K-1} + 
+\nabla_{u_{K-1}} \bigg\{(Ax_{K-1} + Bu_{K-1})^TQ_K(Ax_{K-1} + Bu_{K-1}) \bigg\} &= 0 \\
+
+2R_{K-1}u_{K-1} + 
+\nabla_{u_{K-1}} \bigg\{ x_{K-1}^T A^T Q_K A x_{K-1} + x_{K-1}^T A^T Q_K B u_{K-1} + u_{K-1}^T B^T Q_K A x_{K-1} + u_{K-1}^T B^T Q_K B u_{K-1} \bigg\} &= 0 \\
+
+2R_{K-1}u_{K-1} + 
+\nabla_{u_{K-1}} \bigg\{ x_{K-1}^T A^T Q_K B u_{K-1} + u_{K-1}^T B^T Q_K A x_{K-1} + u_{K-1}^T B^T Q_K B u_{K-1} \bigg\} &= 0 \\
+
+\end{aligned}
+$$
+
+The quantities $x_{K-1}^T A^T Q_K B u_{K-1}$ and $u_{K-1}^T B^T Q_K A x_{K-1}$ are the transpose of each other and represent scalars, hence they're equal.
+
+$$
+\begin{aligned}
+
+2R_{K-1}u_{K-1} + 
+\nabla_{u_{K-1}} \bigg\{ 2x_{K-1}^T A^T Q_K B u_{K-1} + u_{K-1}^T B^T Q_K B u_{K-1} \bigg\} &= 0 \\
+
+2R_{K-1}u_{K-1} + 
+2 B^T Q_K^T A x_{K-1} +
+2 B^T Q_K B u_{K-1} &= 0 \\
+
+(R_{K-1} + B^TQ_KB)u_{K-1} + 
+B^T Q_K^T A x_{K-1} &= 0 \\
+
+\end{aligned}
+$$
+
+which leads to:
+
+$$
+u_{K-1} = - \underbrace{(R_{K-1} + B^TQ_KB)^{-1} B^T Q_K^T A}_{K_{K-1}} x_{K-1}
+$$
+
+where $K_{K-1}$ is called the $\textbf{gain matrix}$. The quantity $R_{K-1} + B^TQ_KB$ is clearly symmetric and also positive definite, therefore it is invertible. If both $Q_k$ and $R_k$ were allowed to be positive semi-definite, then $R_{K-1} + B^TQ_KB$ would be positive semi-definite and the gain matrix is not necessarily invertible.
+
+Plugging in the solution for the $K-1$ time step into the Bellman equation, we get:
+
+$$
+\begin{aligned}
+V_{K-1}(x_{K-1}) =&  x_{K-1}^TQ_{K-1}x_{K-1} \\
+
++ & \bigg((R_{K-1} + B^TQ_KB)^{-1} B^T Q_K^T A x_{K-1}\bigg)^TR_{K-1}\bigg( (R_{K-1} + B^TQ_KB)^{-1} B^T Q_K^T A x_{K-1} \bigg)  \\
+
++ & \bigg(Ax_{K-1} + B \Big((R_{K-1} + B^TQ_KB)^{-1} B^T Q_K^T A x_{K-1}\Big)\bigg)^TQ_K\bigg(Ax_{K-1} + B\Big((R_{K-1} + B^TQ_KB)^{-1} B^T Q_K^T A x_{K-1}\Big)\bigg)
+\end{aligned}
+$$
+
+
+
+
 
 ---
 ---
-$\textbf{Why the LQR matrices are assumed symmetric WLOG}$
+$\textbf{Why the LQR matrices are assumed symmetric WLOG}$ 
 
 <a name="symmetric-matrices"></a>
 Running cost and terminal cost are defined as:
