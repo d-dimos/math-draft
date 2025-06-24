@@ -53,5 +53,5 @@ $$
 \dfrac{1}{N} \sum_{i=1}^N H(x_i) \dfrac{p(x_i)}{q(x_i)}
 $$ 
 
-where $x_i \sim q(x_i)$. The better the choice of $q(x)$ the lower the variance of the estimator should be. In theory the optimal proposal distribution $q^*(x)$ reduces the number of necessary samples for convergence of the summation to one.
+where $x_i \sim q(x_i)$. The better the choice of $q(x)$ the lower the variance of the estimator.
 
