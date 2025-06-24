@@ -9,13 +9,13 @@ exclude: true
 
 ## Definitions
 
-$\textbf{Definition 1}:$ [Kullback-Leibler Divergence] Let $p(x)$ and $q(x)$ be two probability density functions (pdfs) defined on the same continuous space $\mathcal{X}$. The Kullback-Leibler (KL) divergence of $p$ from $q$ is defined as
+$\textbf{Definition 1: [Kullback-Leibler Divergence/Relative Entropy]}$ Let $p(x)$ and $q(x)$ be two probability density functions (pdfs) defined on the same continuous space $\mathcal{X}$. The Kullback-Leibler (KL) divergence of $p$ from $q$ is defined as
 
 $$
 D_{KL}(p||q) = \int_{\mathcal{X}} p(x) \log \frac{p(x)}{q(x)} dx = \mathbb{E}_{p(x)}\left[\log \frac{p(x)}{q(x)}\right]
 $$
 
-$\textbf{Definition 2}:$ [Cross-Entropy] Let $p(x)$ and $q(x)$ be two pdfs defined on the same continuous space $\mathcal{X}$. The cross-entropy of $q$ relative to $p$ is defined as
+$\textbf{Definition 2: [Cross-Entropy]}$ Let $p(x)$ and $q(x)$ be two pdfs defined on the same continuous space $\mathcal{X}$. The cross-entropy of $q$ relative to $p$ is defined as
 
 $$
 H(p, q) = -\int_{\mathcal{X}} p(x) \log q(x) dx = \mathbb{E}_{p(x)}\left[-\log q(x)\right]
