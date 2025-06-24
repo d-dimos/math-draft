@@ -44,7 +44,7 @@ $$
 \int H(x) p(x) dx = \int H(x) \dfrac{p(x)}{q(x)}q(x) dx = \mathbb{E}_{x\sim q(x)}\left [ H(x) \dfrac{p(x)}{q(x)} \right]
 $$
 
-This rewritting allows us to estimate the desired expected value by drawing samples from an arbitrary distribution $q(x)$ namely $\textit{proposal distribution}$. We want to choose $g(x)$ to reduce variance of the estimator and sample efficiently. 
+This rewritting allows us to estimate the desired expected value by drawing samples from an arbitrary distribution $q(x)$ namely $\textit{proposal distribution}$. We want to choose $q(x)$ to reduce variance of the estimator and sample efficiently. 
 
 If we find a good choice for the proposal distribution then we estimate the expected value as:
 
