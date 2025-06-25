@@ -61,7 +61,6 @@ The optimal proposal distribution is:
 $$
 q^*(x) = \dfrac{F(x)p(x)}{\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]}
 $$
-
 which has the lowest possible variance (a single sample is enough). Of course, we cannot have access to $q^*(x)$ since it depends on $\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]$ which is the unknown quantity that we are trying to estimate in the first place.
 
 Therefore, we would like to approximate $q^*(x)$ in order to use it to estimate $\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]$ with a low variance via importance sampling.
@@ -88,7 +87,7 @@ $$
 \theta^* = \arg \min_\theta \mathbb{E}_{q^*(x)}\left[- \log g(x ; \theta) \right]
 $$
 
-Hence, the objective has turned into minimizing the Cross-Entropy $H(q^*, g) = \mathbb{E}_{q^*(x)}\left[- \log g(x ; \theta) \right]$.
+Hence, the objective has turned into minimizing the Cross-Entropy $$H(q^*, g) = \mathbb{E}_{q^*(x)}\left[- \log g(x ; \theta) \right]$$.
 
 We flip the objective's sign and turn this into a maximization problem:
 
