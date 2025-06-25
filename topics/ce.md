@@ -80,7 +80,7 @@ $$
 the first term is constant with respect to $\theta$, hence the objective becomes:
 
 $$
-\theta^* = \argmin_\theta \mathbb{E}_{q^*(x)}\left[- \log g(x ; \theta) \right]
+\theta^* = \arg \min_\theta \mathbb{E}_{q^*(x)}\left[- \log g(x ; \theta) \right]
 $$
 
 Hence, the objective has turned into minimizing the Cross-Entropy $H(q^*, g) = \mathbb{E}_{q^*(x)}\left[- \log g(x ; \theta) \right]$.
@@ -88,7 +88,7 @@ Hence, the objective has turned into minimizing the Cross-Entropy $H(q^*, g) = \
 We flip the objective's sign and turn this into a maximization problem:
 
 $$
-\theta^* = \argmax_\theta \mathbb{E}_{q^*(x)}\left[\log g(x ; \theta) \right]
+\theta^* = \arg \max_\theta \mathbb{E}_{q^*(x)}\left[\log g(x ; \theta) \right]
 $$
 
 We go on analyzing the objective function further:
@@ -113,14 +113,14 @@ $$
 We reached this point by using Importance Sampling (introducing $g(x;w)$) and then Monte Carlo integration. The final objective is:
 
 $$
-\theta^* = \argmax_\theta \dfrac{1}{N} \sum_{i=1}^N F(x_i) \dfrac{p(x_i)}{g(x_i ; w)} \log g(x_i ; \theta)
+\theta^* = \arg \max_\theta \dfrac{1}{N} \sum_{i=1}^N F(x_i) \dfrac{p(x_i)}{g(x_i ; w)} \log g(x_i ; \theta)
 $$
 
 
 The cross entropy method is iterative and after each iteration it replaces $w$ with the new estimate $\theta^{(k)}$, aka:
 
 $$
-\theta^{(k+1)} = \argmax_\theta \dfrac{1}{N} \sum_{i=1}^N F(x_i) \dfrac{p(x_i)}{g(x_i ; \theta^{(k)})} \log g(x_i ; \theta)
+\theta^{(k+1)} = \arg \max_\theta \dfrac{1}{N} \sum_{i=1}^N F(x_i) \dfrac{p(x_i)}{g(x_i ; \theta^{(k)})} \log g(x_i ; \theta)
 $$
 
 where the samples $x$ are drawn from $g(x ; \theta^{(k)})$ and we keep iterating until convergence.
