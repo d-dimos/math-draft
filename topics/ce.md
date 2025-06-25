@@ -57,7 +57,7 @@ where $x_i \sim q(x_i)$. The better the choice of $q(x)$ the lower the variance 
 
 ## Generic Cross-Entropy Method
 
-The optimal proposal distribution is: $q^*(x) = \dfrac{F(x)p(x)}{\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]}$, which has the lowest possible variance (a single sample is enough). Of course, we cannot have access to $q^*(x)$ since it depends on $\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]$ which is the unknown quantity that we are trying to estimate in the first place.
+The optimal proposal distribution is: $q^*(x) $, which has the lowest possible variance (a single sample is enough). Of course, we cannot have access to $q^*(x)$ since it depends on $\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]$ which is the unknown quantity that we are trying to estimate in the first place.
 
 Therefore, we would like to approximate $q^*(x)$ in order to use it to estimate $\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]$ with a low variance via importance sampling.
 
@@ -66,7 +66,7 @@ Cross-entropy method is an algorithm used to approximate $q^*(x)$.
 We define $g(x ; \theta)$ to be a pdf parameterized by $\theta$ and we desire $g(x ; \theta)$ to be as close to $q^*(x)$ as possible in the sense of KL divergence, a.k.a. we desire:
 
 $$
-\theta^* = \argmin_\theta D_{KL}(q^*(x) || g(x ; \theta))
+\theta^* = \arg \min_\theta D_{KL}(q^*(x) || g(x ; \theta))
 $$
 
 Using the definition of KL divergence:
