@@ -57,7 +57,7 @@ where $x_i \sim q(x_i)$. The better the choice of $q(x)$ the lower the variance 
 
 ## Generic Cross-Entropy Method
 
-The optimal proposal distribution is: $q^*(x) = \dfrac{F(x)p(x)}{\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]}$, which has the lowest possible variance (a single sample is enough). Of course, we cannot have access to $q^*(x)$ since it depends on $\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]$ which is the unknown quantity that we are trying to estimate in the first place.
+The optimal proposal distribution is: $q(x) = \dfrac{F(x)p(x)}{\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]}$, which has the lowest possible variance (a single sample is enough). Of course, we cannot have access to $q^*(x)$ since it depends on $\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]$ which is the unknown quantity that we are trying to estimate in the first place.
 
 Therefore, we would like to approximate $q^*(x)$ in order to use it to estimate $\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]$ with a low variance via importance sampling.
 
