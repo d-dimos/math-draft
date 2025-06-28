@@ -149,14 +149,89 @@ The objective function $J(\theta)$ is generally non-convex. We do not have a way
 We model the parameters as a random variable $\theta \sim q_{\phi}(\theta)$ (commonly chosen to be an isotropic Gaussian). The problem of finding an optimal $\theta$ is cast to a problem of finding the best parameters of its modeling distribution.
 
 
-Now we fix $\phi$ and draw some samples from it $\theta_1, \dots, \theta_N$. Consider the following distribution (assuming that we want to maximize $J$ wlog):
+Now we fix $\phi$ to a value $\phi'$ and draw some samples from it $\theta_1, \dots, \theta_N$. Consider the following distribution (assuming that we want to maximize $J$ wlog):
 
 $$
 p(\theta) \propto \mathbb{1}_{\{J(\theta_i) > \gamma\}}
 $$
 
-This is a uniform distribution among the samples that are at least as good as $\gamma$. 
-Notice that for any choice of $q_\phi(\theta)$ the handcrafted $p(\theta)$ is far more likely to generate better $\theta$ especially when our choice of $\phi$ is bad (assuming a large enough sample $N$).
+This is a uniform distribution among the samples that yield average rewards better than $\gamma$. We do not care about the normalizing constant. The reason will become obvious in a moment.
 
+Notice that (assuming large enough $N$) for any choice of $q_{\phi'}(\theta)$ the handcrafted $p(\theta)$ is far more likely to generate better $\theta$, especially when our choice of $\phi'$ is bad. In other words, the handcrafted $p(\theta)$ is simply the uniform distribution over the best samples that we drew from $q_{\phi'}(\theta)$. This is the CEM comes into play.
 
+We would like to minimize the KL divergence between $q_{\phi}$ and the better distribution $p$, which is equivalent to minimizing the Cross-Entropy $H(p, q_{\phi}) = \mathbb{E}_{p}\left[-\log q_{\phi}(\theta)\right]$.
+
+$$
+\begin{align*}
+\phi^* &= \arg \min_{\phi}  \mathbb{E}_{p}\left[-\log q_{\phi}(\theta)\right] \\[10pt]
+&= \arg \max_{\phi}  \mathbb{E}_{p}\left[\log q_{\phi}(\theta)\right] \\[10pt]
+&= \arg \max_{\phi}  \mathbb{E}_{g(\theta)}\left[\dfrac{p(\theta)}{g(\theta)}\log q_{\phi}(\theta)\right] \\[10pt]
+\end{align*}
+$$
+
+where at the last step we used importance sampling.
+
+$$
+\begin{align*}
+\phi^* &\approx \arg \max_{\phi} \sum_{i=1}^N \dfrac{p(\theta_i)}{g(\theta_i)}\log q_{\phi}(\theta_i)\\[10pt]
+&= \arg \max_{\phi} \sum_{i=1}^N \dfrac{\mathbb{1}_{\{J(\theta_i) > \gamma\}}(\theta_i)}{g(\theta_i)}\log q_{\phi}(\theta_i)\\[10pt]
+\end{align*}
+$$
+
+where $\theta_i \sim g_{u}(\theta_i)$ and we have ignored the normalization constant of $p(\theta)$ since it does not contribute to the optimization.
+
+We are allowed to choose any distribution $g(\theta)$ to sample from. It makes sense for us to use $q_{\phi'}(\theta)$, aka out initial guess of the distribution of $\theta$. We get:
+
+$$
+\begin{align*}
+\phi^* &\approx \arg \max_{\phi} \sum_{i=1}^N \dfrac{\mathbb{1}_{\{J(\theta_i) > \gamma\}}(\theta_i)}{q_{\phi'}(\theta_i)}\log q_{\phi}(\theta_i)\\[10pt]
+\end{align*}
+$$
+
+Therefore, we sample using our initial guess and optimize wrt $\phi$ in order to get a better guess, aka one that is closer to a distribution that yields higher cumulative rewards on average. If we keep doing this procedure iteratively, we get closer and closer to a distribution that yields higher rewards compared to the previous guesses. The optimization turns into:
+
+$$
+\begin{align*}
+\phi^{(k+1)} &\approx \arg \max_{\phi} \sum_{i=1}^N \dfrac{\mathbb{1}_{\{J(\theta_i) > \gamma\}}(\theta_i)}{q_{\phi^{(k)}}(\theta_i)}\log q_{\phi}(\theta_i)\\[10pt]
+\end{align*}
+$$
  
+Now consider the scenario in which out guess of $\phi^{(0)}$ is really bad. In this case it will be difficult to collect a large amount of samples that survive $\mathbb{1}_{\{J(\theta_i) > \gamma\}}(\theta_i)$. Additionally, if the samples that survive are assigned a very low likelihood by $q_{\phi^{(k)}}(\theta_i)$ the weights explode. To avoid this, we usually drop the $q_{\phi^{(k)}}(\theta_i)$ completely. The resulting $\phi^{(k+1)}$ may not be the same, however it will still be in the right direction, since the average is computed over "better" samples, regardless of the weight of each one. The optimizer may not be as good as the one we would obtain in theory as $N \to \infty$, but it would still be good enough, and also practically computable. We arrive at:
+
+$$
+\begin{align*}
+\phi^{(k+1)} &\approx \arg \max_{\phi} \sum_{i=1}^N \mathbb{1}_{\{J(\theta_i) > \gamma\}}(\theta_i) \log q_{\phi}(\theta_i)\\[10pt]
+\end{align*}
+$$
+
+where $\theta_i \sim q_{\phi^{(k)}}(\theta_i)$.
+
+Let $\mathcal{E} = \{\theta_i : i \in \{1, \dots, N\} \text{ and } J(\theta_i) > \gamma \}$ be the elite-set. The final objective can be rewritten as:
+
+$$
+\begin{align*}
+\phi^{(k+1)} &\approx \arg \max_{\phi} \sum_{\theta \in \mathcal{E}} \log q_{\phi}(\theta)\\[10pt]
+\end{align*}
+$$
+
+which makes it clear that the problem has been reduced to a maximum likelihood estimation over the elite samples.
+
+## Modeling Controls as a Gaussian
+
+If we choose our distribution $q_{\phi}$ to be Gaussian, aka $\phi = (\mu, \Sigma)$, then the problem is directly solved using the known maximizers:
+
+$$
+\mu = \dfrac{1}{|\mathcal{E}|}\sum_{\theta \in \mathcal{E}} \theta
+\qquad
+
+\text{and}
+
+\qquad
+\Sigma = \dfrac{1}{|\mathcal{E}|}\sum_{\theta \in \mathcal{E}} (\theta - \mu)(\theta - \mu)^T
+$$
+
+
+
+
+
+
