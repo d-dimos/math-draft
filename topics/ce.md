@@ -209,7 +209,7 @@ $$
 
 where $\theta_i \sim q_{\phi^{(k)}}(\theta_i)$.
 
-Let $\mathcal{E} = \{\theta_i : i \in \{1, \dots, N\} \text{ and } J(\theta_i) > \gamma \}$ be the elite-set. The final objective can be rewritten as:
+Let $\mathcal{E} = \\{\theta_i : i \in \{1, \dots, N\\} \text{ and } J(\theta_i) > \gamma \}$ be the elite-set. The final objective can be rewritten as:
 
 $$
 \begin{align*}
