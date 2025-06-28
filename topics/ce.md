@@ -162,7 +162,7 @@ This is a uniform distribution among the samples that yield higher average rewar
 
 Notice that (assuming large enough $N$) for any choice of $q_{\phi'}(\theta)$ the handcrafted $p(\theta)$ is far more likely to generate better $\theta$, especially when our choice of $\phi'$ is bad. In other words, the handcrafted $p(\theta)$ is simply the uniform distribution over the best samples that we drew from $q_{\phi'}(\theta)$. This is where CEM comes into play.
 
-We would like to minimize the KL divergence between $q_{\phi}$ and the better distribution $p$, which is equivalent to minimizing the Cross-Entropy $H(p, q_{\phi}) = \mathbb{E}_{p}\left[-\log q_{\phi}(\theta)\right]$.
+We would like to minimize the KL divergence between $q_{\phi}$ and the better distribution $p$, which is equivalent to minimizing the Cross-Entropy $$H(p, q_{\phi}) = \mathbb{E}_{p}\left[-\log q_{\phi}(\theta)\right]$$.
 
 $$
 \begin{align*}
@@ -199,7 +199,7 @@ $$
 \end{align*}
 $$
  
-Now consider the scenario in which out guess of $\phi^{(0)}$ is really bad. In this case it will be difficult to collect a large amount of samples that survive $\mathbb{1}_{\{J(\theta_i) > \gamma\}}(\theta_i)$. Additionally, if the samples that survive are assigned a very low likelihood by $q_{\phi^{(k)}}(\theta_i)$ the weights explode. To avoid this, we usually drop the $q_{\phi^{(k)}}(\theta_i)$ completely. The resulting $\phi^{(k+1)}$ may not be the same; however it will still be in the right direction, since the average is computed over "better" samples, regardless of their likelihood under the proposal distribution. The optimizer may not be as good as the one we would obtain in theory as $N \to \infty$, but it would still be good enough, and also practically computable. We arrive at:
+Now consider the scenario in which out guess of $\phi^{(0)}$ is really bad. In this case it will be difficult to collect a large amount of samples that survive $$\mathbb{1}_{\{J(\theta_i) > \gamma\}}(\theta_i)$$. Additionally, if the samples that survive are assigned a very low likelihood by $q_{\phi^{(k)}}(\theta_i)$ the weights explode. To avoid this, we usually drop the $q_{\phi^{(k)}}(\theta_i)$ completely. The resulting $\phi^{(k+1)}$ may not be the same; however it will still be in the right direction, since the average is computed over "better" samples, regardless of their likelihood under the proposal distribution. The optimizer may not be as good as the one we would obtain in theory as $N \to \infty$, but it would still be good enough, and also practically computable. We arrive at:
 
 $$
 \begin{align*}
