@@ -128,9 +128,12 @@ $$
 
 where the samples $x$ are drawn from $g(x ; \theta^{(k)})$ and we keep iterating until convergence.
 
-## CEM in Stochastic Optimal Control
 
-Consider a discrete-time stochastic system with dynamics $p(x_{k+1} | x_k, u_k)$. We symbolize a state trajectory as $\tau = \{x_1, \dots, x_K\}$. Let $\pi_\theta(u_k|x_k)$ be a policy parameterized by $\theta$. In stochastic optimal control we define the following objective:
+## CEM in Stochatic Optimal Control
+
+Consider a discrete-time stochastic system with dynamics $p(x_{k+1} | x_k, u_k)$. We symbolize a state trajectory as 
+$$\tau = \{x_1, \dots, x_K\}$$
+. Let $$\pi_\theta(u_k|x_k)$$ be a policy parameterized by $\theta$. In stochastic optimal control we define the following objective:
 
 $$
 J(\theta) = \mathbb{E}_{\tau \sim p_{\theta}(\tau)} \left[ \sum_{k=1}^K \gamma^k r(x_k, u_k) \bigg| x_0\right]
