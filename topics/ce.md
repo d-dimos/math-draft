@@ -64,7 +64,7 @@ $$, which has the lowest possible variance (a single sample is enough). Of cours
 
 Therefore, we would like to approximate $q^*(x)$ in order to use it to estimate $\mathbb{E}_{x \sim p(x)} \left[ F(x) \right]$ with a low variance via importance sampling.
 
-Cross-entropy method is an algorithm used to approximate $q^*(x)$. 
+The cross-entropy method is an algorithm used to approximate $q^*(x)$. 
 
 We define $g(x ; \theta)$ to be a pdf parameterized by $\theta$ and we desire $g(x ; \theta)$ to be as close to $q^*(x)$ as possible in the sense of KL divergence, a.k.a. we desire:
 
@@ -94,7 +94,7 @@ $$
 \theta^* = \arg \max_\theta \mathbb{E}_{q^*(x)}\left[\log g(x ; \theta) \right]
 $$
 
-We go on analyzing the objective function further:
+We now analyze the objective further:
 
 $$
 \begin{align*}
@@ -146,7 +146,7 @@ The aim in optimal control is to optimize (either minimize or maximize depending
 
 The objective function $J(\theta)$ is generally non-convex. We do not have a way of getting to the global optimum directly. However, we can at least get to a local optimum by working as follows.
 
-We model the parameters as a random variable $\theta \sim q_{\phi}(\theta)$ (commonly chosen to be an isotropic Gaussian). The problem of finding an optimal $\theta$ is cast to a problem of finding the best parameters of its modeling distribution.
+We model the control sequence (or policy parameters) as drawn from a parametric distribution $\theta \sim q_{\phi}(\theta)$. The problem of finding an optimal $\theta$ is cast to a problem of finding the best parameters of its modeling distribution.
 
 
 Now we fix $\phi$ to a value $\phi'$ and draw some samples from it $\theta_1, \dots, \theta_N$. Consider the following distribution (assuming that we want to maximize $J$ wlog):
@@ -155,9 +155,9 @@ $$
 p(\theta) \propto \mathbb{1}_{\{J(\theta_i) > \gamma\}}
 $$
 
-This is a uniform distribution among the samples that yield average rewards better than $\gamma$. We do not care about the normalizing constant. The reason will become obvious in a moment.
+This is a uniform distribution among the samples that yield higher average rewards than $\gamma$. We ignore the normalizing constant, as it does not affect the optimization — a fact that will become clear shortly.
 
-Notice that (assuming large enough $N$) for any choice of $q_{\phi'}(\theta)$ the handcrafted $p(\theta)$ is far more likely to generate better $\theta$, especially when our choice of $\phi'$ is bad. In other words, the handcrafted $p(\theta)$ is simply the uniform distribution over the best samples that we drew from $q_{\phi'}(\theta)$. This is the CEM comes into play.
+Notice that (assuming large enough $N$) for any choice of $q_{\phi'}(\theta)$ the handcrafted $p(\theta)$ is far more likely to generate better $\theta$, especially when our choice of $\phi'$ is bad. In other words, the handcrafted $p(\theta)$ is simply the uniform distribution over the best samples that we drew from $q_{\phi'}(\theta)$. This is where CEM comes into play.
 
 We would like to minimize the KL divergence between $q_{\phi}$ and the better distribution $p$, which is equivalent to minimizing the Cross-Entropy $H(p, q_{\phi}) = \mathbb{E}_{p}\left[-\log q_{\phi}(\theta)\right]$.
 
@@ -180,7 +180,7 @@ $$
 
 where $\theta_i \sim g_{u}(\theta_i)$ and we have ignored the normalization constant of $p(\theta)$ since it does not contribute to the optimization.
 
-We are allowed to choose any distribution $g(\theta)$ to sample from. It makes sense for us to use $q_{\phi'}(\theta)$, aka out initial guess of the distribution of $\theta$. We get:
+We are allowed to choose any distribution $g(\theta)$ to sample from. It makes sense for us to use $q_{\phi'}(\theta)$, aka our initial guess of the distribution of $\theta$. We get:
 
 $$
 \begin{align*}
@@ -196,7 +196,7 @@ $$
 \end{align*}
 $$
  
-Now consider the scenario in which out guess of $\phi^{(0)}$ is really bad. In this case it will be difficult to collect a large amount of samples that survive $\mathbb{1}_{\{J(\theta_i) > \gamma\}}(\theta_i)$. Additionally, if the samples that survive are assigned a very low likelihood by $q_{\phi^{(k)}}(\theta_i)$ the weights explode. To avoid this, we usually drop the $q_{\phi^{(k)}}(\theta_i)$ completely. The resulting $\phi^{(k+1)}$ may not be the same, however it will still be in the right direction, since the average is computed over "better" samples, regardless of the weight of each one. The optimizer may not be as good as the one we would obtain in theory as $N \to \infty$, but it would still be good enough, and also practically computable. We arrive at:
+Now consider the scenario in which out guess of $\phi^{(0)}$ is really bad. In this case it will be difficult to collect a large amount of samples that survive $\mathbb{1}_{\{J(\theta_i) > \gamma\}}(\theta_i)$. Additionally, if the samples that survive are assigned a very low likelihood by $q_{\phi^{(k)}}(\theta_i)$ the weights explode. To avoid this, we usually drop the $q_{\phi^{(k)}}(\theta_i)$ completely. The resulting $\phi^{(k+1)}$ may not be the same; however it will still be in the right direction, since the average is computed over "better" samples, regardless of their likelihood under the proposal distribution. The optimizer may not be as good as the one we would obtain in theory as $N \to \infty$, but it would still be good enough, and also practically computable. We arrive at:
 
 $$
 \begin{align*}
@@ -230,8 +230,16 @@ $$
 \Sigma = \dfrac{1}{|\mathcal{E}|}\sum_{\theta \in \mathcal{E}} (\theta - \mu)(\theta - \mu)^T
 $$
 
-The problem has essentially been reduced to repeatedly purturbing our current guess and computing the average over the samples that produced better returns until convergence.
+The problem has essentially been reduced to repeatedly perturbing our current guess and computing the average over the samples that produced better returns until convergence.
 
-Convergence rate (in practice) depends on the number pf samples we are able to collect in parallel. The optimum is not guaranteed to be globally optimal.
+Convergence rate (in practice) depends on the number of samples we are able to collect in parallel. The optimum is not guaranteed to be globally optimal.
 
+## Choosing the elite threshold $\gamma$
 
+The choice of the elite threshold $\gamma$ in practice is quantile-based:
+
+$$
+\gamma = \text{Quantile}_{\rho}\left(\{J(\theta_i)\}_{i=1}^N\right)
+$$
+
+which stabilizes elite selection and avoids needing to tune $\gamma$ manually.
