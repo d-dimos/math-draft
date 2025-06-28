@@ -230,8 +230,8 @@ $$
 \Sigma = \dfrac{1}{|\mathcal{E}|}\sum_{\theta \in \mathcal{E}} (\theta - \mu)(\theta - \mu)^T
 $$
 
+The problem has essentially been reduced to repeatedly purturbing our current guess and computing the average over the samples that produced better returns until convergence.
 
-
-
+Convergence rate (in practice) depends on the number pf samples we are able to collect in parallel. The optimum is not guaranteed to be globally optimal.
 
 
