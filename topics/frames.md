@@ -3,7 +3,6 @@ layout: default
 title: 
 permalink: /topics/frames/
 exclude: true
-render_with_liquid: false
 ---
 
 # Coordinate Changes Between Frames in SE(3)
@@ -54,7 +53,7 @@ $$
 = \underbrace{\begin{bmatrix}
 {^{A}R}_{B} & {^{A}t}_{B}\\[2pt]
 0 & 1
-\end{bmatrix}}_{{^{A}T}_{B}}\,\begin{bmatrix}p^B\\[2pt]1\end{bmatrix}
+\end{bmatrix}}_{ {^{A}T}_{B} }\,\begin{bmatrix}p^B\\[2pt]1\end{bmatrix}
 $$
 
 To map point representations along consecutive frames, we post-multiply homogeneous points by consecutive transforms to their left. For instance, for a coordinate re-expression from frame $C$ to $B$ to $A$, we write:
