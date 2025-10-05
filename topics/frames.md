@@ -64,7 +64,7 @@ $$
 {^{B}\!t}_{A} = -({^{A}\!R}_{B})^{-1} \cdot {^{A}\!t}_{B}.
 $$
 
-The pair $({^{A}\!R}_{B},{^{A}\!t}_{B})$ is the **pose of frame $B$ w.r.t. frame $A$** and it maps points expressed in $B$ to their representations expressed in $A$.
+The pair $$({^{A}\!R}_{B},{^{A}\!t}_{B})$$ is the **pose of frame $B$ w.r.t. frame $A$** and it maps points expressed in $B$ to their representations expressed in $A$.
 
 ---
 $\textbf{Note}$
