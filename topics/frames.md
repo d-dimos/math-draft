@@ -28,7 +28,7 @@ $$
 
 - ${^{A}\!t}_{B}$ gives the coordinates of the origin of $B$ expressed in frame $A$,
 
-- The pair $({^{A}\!R}_{B},{^{A}\!t}_{B})$ is the **pose of frame $B$ w.r.t. frame $A$** and it maps points expressed in $B$ to their representations expressed in $A$ via (2).
+- The pair $$({^{A}\!R}_{B},{^{A}\!t}_{B})$$ is the **pose of frame $B$ w.r.t. frame $A$** and it maps points expressed in $B$ to their representations expressed in $A$ via (2).
 
 - the converse holds for ${^{B}\!R}_{A}$ and ${^{B}\!t}_{A}$.
 
