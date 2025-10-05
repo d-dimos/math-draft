@@ -16,10 +16,13 @@ Notation:
 Let $p^A$ be the coordinates of a point w.r.t. $A$ and $p^B$ the coordinates of the same point w.r.t. $B$.
 
 To convert $p^A$ into $p^B$ (a change of coordinates), we use
+
 $$
 p^B = {^{B}\!R}_{A}\,p^A + {^{B}\!t}_{A} \qquad (1)
 $$
+
 and conversely
+
 $$
 p^A = {^{A}\!R}_{B}\,p^B + {^{A}\!t}_{B} \qquad (2)
 $$
