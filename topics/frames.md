@@ -11,7 +11,7 @@ Notation:
 
 - $p^X$: the coordinates of a point expressed w.r.t. frame $X$.
 
-- ${^{Y}\!\square}_{X}$ (equivalently $\square^Y_X$): $X$ is the source frame, and $Y$ is the expressed-in/target frame. For example, ${^{Y}\!T}_{X}$ maps coordinates initially expressed in $X$ into coordinates expressed in $Y$.
+- ${^{Y}\!\square}_{X}$ (equivalently $$\square^Y_X$$): $X$ is the source frame, and $Y$ is the expressed-in/target frame. For example, $${^{Y}\!T}_{X}$$ maps coordinates initially expressed in $X$ into coordinates expressed in $Y$.
 
 Let $p^A$ be the coordinates of a point w.r.t. $A$ and $p^B$ the coordinates of the same point w.r.t. $B$.
 
@@ -30,7 +30,7 @@ $$
 
 - The pair $$({^{A}\!R}_{B},{^{A}\!t}_{B})$$ is the **pose of frame $B$ w.r.t. frame $A$** and it maps points expressed in $B$ to their representations expressed in $A$ via (2).
 
-- the converse holds for ${^{B}\!R}_{A}$ and ${^{B}\!t}_{A}$.
+- the converse holds for $${^{B}\!R}_{A}$$ and $${^{B}\!t}_{A}$$.
 
 From $(1)$ and $(2)$ we obtain the inverse relations:
 
