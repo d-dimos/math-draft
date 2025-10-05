@@ -46,27 +46,24 @@ $$
 
 $\textbf{Chaining Consecutive Transformations}$
 
-In homogeneous form,
+In homogeneous form:
 
 $$
 \begin{bmatrix}p^A\\[2pt]1\end{bmatrix}
-= {^{A}T}_{B}\,\begin{bmatrix}p^B\\[2pt]1\end{bmatrix},
-\qquad
-{^{A}T}_{B} =
-\begin{bmatrix}
+= \underbrace{\begin{bmatrix}
 {^{A}R}_{B} & {^{A}t}_{B}\\[2pt]
 0 & 1
-\end{bmatrix}.
+\end{bmatrix}}_{{^{A}T}_{B}}\,\begin{bmatrix}p^B\\[2pt]1\end{bmatrix}
 $$
 
-To map point representations along consecutinve frames we post multiply homogeneous points with consecutive transforms to their left. For instance, for a coordinate re-expression from frame $C$ to $B$ to $A$, we write
+To map point representations along consecutinve frames we post multiply homogeneous points with consecutive transforms to their left. For instance, for a coordinate re-expression from frame $C$ to $B$ to $A$, we write:
 
 $$
 \begin{bmatrix}p^{A}\\[2pt]1\end{bmatrix}
 = {^{A}T}_{B}\,{^{B}T}_{C}\,\begin{bmatrix}p^{C}\\[2pt]1\end{bmatrix},
 $$
 
-The matrix closest to the vector acts first (here $${^{B}T}_{C}$$ maps $$C\toB$$, and the left factor then maps the result to $A$).
+The matrix closest to the vector acts first (here $${^{B}T}_{C}$$ maps $C$ to $B$, and the left factor then maps the result to $A$).
 
 ---
 ---
