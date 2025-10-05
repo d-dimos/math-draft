@@ -12,7 +12,7 @@ We follow the convention that rigid transformations act by first rotating and th
 - $p^X$: the coordinates of a point expressed w.r.t. frame $X$.
 - $^Y\square_X$(equivalently $$\square^Y_X$$): $X$ is the source frame, and $Y$ is the expressed-in/target frame. For example, $${^{Y}\!R}_{X}$$ is a rotation expressed w.r.t. frame $Y$ applied to coordinates initially expressed in $X$.
 
-Consider a coordinate frame $A$. Apply a rotation $R^A$ and then a translation $t^A$ (both expressed in $A$) to the frame $A$ to obtain a new frame $B$ (this is an **active** motion of the frame).
+Consider a coordinate frame $A$. Apply a rotation $R^A$ and then a translation $t^A$ (both expressed in $A$) to frame $A$ to obtain a new frame $B$ (this is an **active** motion of the frame).
 
 Let $p^A$ be the coordinates of a point w.r.t. $A$ and $p^B$ the coordinates of the same point w.r.t. $B$.
 
