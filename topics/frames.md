@@ -68,4 +68,4 @@ The pair $({^{A}\!R}_{B},{^{A}\!t}_{B})$ is the **pose of frame $B$ w.r.t. frame
 
 ---
 ### Note
-Rotation matrices are orthonormal, so ${^{B}R}_{A} = ({^{A}R}_{B})^{-1} = ({^{A}R}_{B})^\top$.
+Rotation matrices are orthonormal, hence: $${^{B}R}_{A} = ({^{A}R}_{B})^{-1} = ({^{A}R}_{B})^\top$$.
