@@ -10,7 +10,7 @@ exclude: true
 We follow the convention that rigid transformations act by first rotating and then translating, i.e., $p' = R\,p + t$. We use the following notations:
 
 - $p^X$: the coordinates of a point expressed w.r.t. frame $X$.
-- ${^{Y}□}_{X}$ (equivalently $\square^Y_X$): $X$ is the source frame (what you have), and $Y$ is the expressed-in/target frame (what you want). For example, ${^{Y}\!R}_{X}$ is a rotation expressed w.r.t. frame $Y$ applied to coordinates initially expressed in $X$.
+- ${^Y□}_X$ (equivalently $□^Y_X$): $X$ is the source frame (what you have), and $Y$ is the expressed-in/target frame (what you want). For example, ${^{Y}\!R}_{X}$ is a rotation expressed w.r.t. frame $Y$ applied to coordinates initially expressed in $X$.
 
 Consider a coordinate frame $A$. Apply a rotation $R^A$ and then a translation $t^A$ (both expressed in $A$) to the frame $A$ to obtain a new frame $B$ (this is an **active** motion of the frame).
 
@@ -28,7 +28,7 @@ $$
 p^A = {^{A}\!R}_{B} \cdot p^B + {^{A}\!t}_{B}. \qquad (2)
 $$
 
-From now on we focus on the $A \to B$ mapping; the reverse is analogous.
+From now on we focus on the $A \to B$ mapping. The reverse is analogous.
 
 The pair $({^{B}R}_{A},{^{B}t}_{A})$ maps coordinates expressed in $A$ to coordinates expressed in $B$ via (1). Note that this pair is **expressed in $B$**. By contrast, the active motion that *carried* frame $A$ to frame $B$ used $(R^A,t^A)$ **expressed in $A$**. In general $t^A \neq {^{B}t}_{A}$ because they live in different frames.
 
