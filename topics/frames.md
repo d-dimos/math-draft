@@ -92,7 +92,7 @@ $$
 - to map $p^W \mapsto p^C$:
 
 $$
-p^C = {^{C}\!R}_{W}\cdot p^W + {^{C}\!t}_{W}
+p^C = {^{C}\!R}_{W}\cdot p^W + {^{C}\!t}_{W},
 $$
  
 $$
