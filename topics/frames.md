@@ -64,7 +64,7 @@ The matrix closest to the vector acts first (here ${^{B}\!T}_{C}$ maps $C\!\to\!
 ---
 $\textbf{Example}$
 
-Consider a (world) frame $W$ and a camera frame that are initially aligned. Suppose the camera is rotated about $z^W$ by $10^\circ$ and then translated so that its origin lies at the point $\begin{bmatrix}7\\2\\9\end{bmatrix}$ w.r.t. $W$.
+Consider a (world) frame $W$ and a camera frame that are initially aligned. Suppose the camera is rotated about $z^W$ by $10^\circ$ and then translated so that its origin lies at the point $$\begin{bmatrix}7\\2\\9\end{bmatrix}$$ w.r.t. $W$.
 
 
 The camera pose w.r.t. $W$ is
