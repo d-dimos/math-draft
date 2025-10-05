@@ -71,3 +71,34 @@ The pair $$({^{A}\!R}_{B},{^{A}\!t}_{B})$$ is the **pose of frame $B$ w.r.t. fra
 $\textbf{Note}$
 
 Rotation matrices are orthonormal, hence: $$({^{A}R}_{B})^{-1} = ({^{A}R}_{B})^\top = {^{B}R}_{A}$$.
+
+---
+$\textbf{Example}$
+
+Consider a (world) frame $W$ and a camera with initial frame $C_{\text{old}}$ that is aligned with $W$. We actively rotate the camera by $10^\circ$ about $z^W$. Then we translate its center to
+$\begin{bmatrix} 7 \\ 2 \\ 9 \end{bmatrix}$ in $W$. The final camera frame is $C$.
+
+Based on pur previous analysis:
+
+- the camera pose w.r.t. $W$ is $$\big({^WR_C}, ^Wt_C\big)$$ and it maps $$p^C \mapsto p^W$$:
+
+$$
+{^{W}\!R}_{C} = R_z(10^\circ),
+\qquad
+{^{W}\!t}_{C} = \begin{bmatrix}7\\2\\9\end{bmatrix},
+$$
+$$
+p^W = {^{W}\!R}_{C}\cdot p^C + {^{W}\!t}_{C}
+$$
+
+- to map $p^W \mapsto p^C$:
+
+$$
+p^C = {^{C}\!R}_{W}\cdot p^W + {^{C}\!t}_{W}
+$$
+ 
+$$
+{^{C}\!R}_{W} = ({^{W}\!R}_{C})^{-1} = R_z(-10^\circ),
+\qquad
+{^{C}\!t}_{W} = -({^{W}\!R}_{C})^{-1} \cdot {^{W}\!t}_{C}.
+$$
