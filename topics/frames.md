@@ -17,10 +17,13 @@ Consider a coordinate frame $A$. Apply a rotation $R^A$ and then a translation $
 Let $p^A$ be the coordinates of a point w.r.t. $A$ and $p^B$ the coordinates of the same point w.r.t. $B$.
 
 To convert $p^A$ into $p^B$ (a **passive** change of coordinates), we use
+
 $$
 p^B = {^{B}\!R}_{A} \cdot p^A + {^{B}\!t}_{A} \qquad (1)
 $$
+
 and conversely
+
 $$
 p^A = {^{A}\!R}_{B} \cdot p^B + {^{A}\!t}_{B}. \qquad (2)
 $$
@@ -31,21 +34,24 @@ The pair $({^{B}\!R}_{A},{^{B}\!t}_{A})$ maps coordinates expressed in $A$ to co
 
 What is the relation between the active $t^A$ and the passive ${^{B}\!t}_{A}$?  
 To map points from $A$ to $B$ we apply the inverse of the frame motion that carried $A$ to $B$: first rotate by $(R^A)^{-1}$ so the axes align, then express $t^A$ in frame $B$ (i.e., multiply by $(R^A)^{-1}$) and subtract:
+
 $$
 p^B = (R^A)^{-1} \cdot p^A - (R^A)^{-1} \cdot t^A. \qquad (3)
 $$
-Multiplying (3) on the left by $R^A$ gives
+
+Multiplying (3) on the left by $R^A$ gives:
+
 $$
 p^A = R^A \cdot p^B + t^A. \qquad (4)
 $$
 
-Comparing (1) with (3) yields
+Comparing (1) with (3) yields:
 
 $$
 {^{B}\!R}_{A} = (R^A)^{-1}, \qquad {^{B}\!t}_{A} = - (R^A)^{-1} \cdot t^A.
 $$
 
-Comparing (2) with (4) yields
+Comparing (2) with (4) yields:
 
 $$
 {^{A}\!R}_{B} = R^A, \qquad {^{A}\!t}_{B} = t^A.
