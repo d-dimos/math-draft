@@ -40,6 +40,7 @@ $$
 $$
 
 In homogeneous form,
+
 $$
 \begin{bmatrix}p^A\\[2pt]1\end{bmatrix}
 = {^{A}\!T}_{B}\,\begin{bmatrix}p^B\\[2pt]1\end{bmatrix},
