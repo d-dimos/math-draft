@@ -76,7 +76,8 @@ Rotation matrices are orthonormal, hence: $$({^{A}R}_{B})^{-1} = ({^{A}R}_{B})^\
 $\textbf{Example}$
 
 Consider a (world) frame $W$ and a camera with initial frame $C_{\text{old}}$ that is aligned with $W$. We actively rotate the camera by $10^\circ$ about $z^W$. Then we translate its center to
-$\begin{bmatrix} 7 \\ 2 \\ 9 \end{bmatrix}$ in $W$. The final camera frame is $C$.
+$$\begin{bmatrix}7\\2\\9\end{bmatrix}$$
+in $W$. The final camera frame is $C$.
 
 Based on our previous analysis:
 
