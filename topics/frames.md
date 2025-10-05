@@ -10,7 +10,7 @@ exclude: true
 We follow the convention that rigid transformations act by first rotating and then translating, i.e., $p' = R\,p + t$. We use the following notations:
 
 - $p^X$: the coordinates of a point expressed w.r.t. frame $X$.
-- ${^{Y}\!\square}_{X}$ (equivalently $\square^Y_X$): $X$ is the source frame (what you have), and $Y$ is the expressed-in/target frame (what you want). For example, ${^{Y}\!R}_{X}$ is a rotation expressed w.r.t. frame $Y$ applied to coordinates initially expressed in $X$.
+- ${^{Y}□}_{X}$ (equivalently $\square^Y_X$): $X$ is the source frame (what you have), and $Y$ is the expressed-in/target frame (what you want). For example, ${^{Y}\!R}_{X}$ is a rotation expressed w.r.t. frame $Y$ applied to coordinates initially expressed in $X$.
 
 Consider a coordinate frame $A$. Apply a rotation $R^A$ and then a translation $t^A$ (both expressed in $A$) to the frame $A$ to obtain a new frame $B$ (this is an **active** motion of the frame).
 
