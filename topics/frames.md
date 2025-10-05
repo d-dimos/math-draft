@@ -102,7 +102,8 @@ $$
 ---
 $\textbf{Note}$
 
-Rotation matrices $R$ are orthogonal $$(R^\top R=I)$$ with $\det(R)=1$ (so $R\in SO(3)$), hence
+Rotation matrices $R \in SO(3)$ are orthogonal $$(R^\top R=I)$$ with $\det(R)=1$, hence
+
 $$
 ({^{A}R}_{B})^{-1} = ({^{A}R}_{B})^\top = {^{B}R}_{A}.
 $$
