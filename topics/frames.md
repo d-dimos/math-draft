@@ -105,4 +105,4 @@ $$
 ---
 $\textbf{Note}$
 
-Rotation matrices are orthonormal, hence: $$({^{A}R}_{B})^{-1} = ({^{A}R}_{B})^\top = {^{B}R}_{A}$$.
+Rotation matrices are orthogonal with $det(R)=1$, hence: $$({^{A}R}_{B})^{-1} = ({^{A}R}_{B})^\top = {^{B}R}_{A}$$.
