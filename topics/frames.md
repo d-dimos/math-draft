@@ -7,15 +7,17 @@ exclude: true
 
 # Coordinate Changes Between Frames in SE(3)
 
-Notation:
+$\textbf{Notation}$
 
 - $p^X$: the coordinates of a point expressed w.r.t. frame $X$.
 
 - ${^{Y}\!\square}_{X}$ (equivalently $$\square^Y_X$$): $X$ is the source frame, and $Y$ is the expressed-in/target frame. For example, $${^{Y}\!T}_{X}$$ maps coordinates initially expressed in $X$ into coordinates expressed in $Y$.
 
+$\textbf{Change of Coordinates}$
+
 Let $p^A$ be the coordinates of a point w.r.t. $A$ and $p^B$ the coordinates of the same point w.r.t. $B$.
 
-To convert $p^A$ into $p^B$ (a change of coordinates), we use
+To convert $p^A$ into $p^B$, we use
 
 $$
 p^B = {^{B}\!R}_{A}\,p^A + {^{B}\!t}_{A} \qquad (1)
@@ -41,6 +43,8 @@ $$
 {^{B}\!R}_{A} = ({^{A}\!R}_{B})^{-1}, \qquad
 {^{B}\!t}_{A} = -({^{A}\!R}_{B})^{-1}\,{^{A}\!t}_{B}.
 $$
+
+$\textbf{Chaining Consecutive Transformations}$
 
 In homogeneous form,
 
