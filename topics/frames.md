@@ -27,9 +27,9 @@ $$
 p^A = {^{A}\!R}_{B}\,p^B + {^{A}\!t}_{B} \qquad (2)
 $$
 
-- ${^{A}\!R}_{B}$ is the orientation of frame $B$ expressed in frame $A$,
+- ${^{A}R}_{B}$ is the orientation of frame $B$ expressed in frame $A$,
 
-- ${^{A}\!t}_{B}$ gives the coordinates of the origin of $B$ expressed in frame $A$,
+- ${^{A}t}_{B}$ gives the coordinates of the origin of $B$ expressed in frame $A$,
 
 - The pair $$({^{A}\!R}_{B},{^{A}\!t}_{B})$$ is the **pose of frame $B$ w.r.t. frame $A$** and it maps points expressed in $B$ to their representations expressed in $A$ via (2).
 
