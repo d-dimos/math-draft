@@ -39,19 +39,19 @@ $$
 p^B = (R^A)^{-1} \cdot p^A - (R^A)^{-1} \cdot t^A. \qquad (3)
 $$
 
-Multiplying (3) on the left by $R^A$ gives:
+Multiplying $(3)$ on the left by $R^A$ gives:
 
 $$
 p^A = R^A \cdot p^B + t^A. \qquad (4)
 $$
 
-Comparing (1) with (3) yields:
+Comparing $(1)$ with $(3)$ yields:
 
 $$
 {^{B}\!R}_{A} = (R^A)^{-1}, \qquad {^{B}\!t}_{A} = - (R^A)^{-1} \cdot t^A.
 $$
 
-Comparing (2) with (4) yields:
+Comparing $(2)$ with $(4)$ yields:
 
 $$
 {^{A}\!R}_{B} = R^A, \qquad {^{A}\!t}_{B} = t^A.
