@@ -5,43 +5,61 @@ permalink: /topics/frames/
 exclude: true
 ---
 
-# Changing Coordinate Frames with SE(3) transformations
+# Relating Active Frame Motion to Passive Coordinate Mapping in SE(3)
 
-We follow the convention that active transformations (rotations and translations) act by first rotating and then translating, i.e., $p' = R\,p + t$.
+We follow the convention that rigid transformations act by first rotating and then translating, i.e., $p' = R\,p + t$. We use the following notations:
 
-Consider a coordinate frame $A$. Apply a rotation $R^A$ and then a translation $t^A$ (both expressed in $A$) to obtain a new frame $B$.
+- $p^X$: the coordinates of a point expressed w.r.t. frame $X$.
+- ${^{Y}\!\square}_{X}$ (equivalently $\square^Y_X$): $X$ is the source frame (what you have), and $Y$ is the expressed-in/target frame (what you want). For example, ${^{Y}\!R}_{X}$ is a rotation expressed w.r.t. frame $Y$ applied to coordinates initially expressed in $X$.
 
-Now, say we have a point $p^A$ expressed w.r.t. frame $A$. To express it w.r.t. frame $B$, we apply the the transform that maps $B$ to $A$, **and we must express that w.r.t. $B$**. Since we use the “first rotate, then translate” convention, we first rotate by $(R^A)^{-1}$. The orientations now match. We cannot simply subtract $t^A$ because it is expressed in $A$. We must rotate it into $B$ before subtracting. Thus:
+Consider a coordinate frame $A$. Apply a rotation $R^A$ and then a translation $t^A$ (both expressed in $A$) to the frame $A$ to obtain a new frame $B$ (this is an **active** motion of the frame).
 
+Let $p^A$ be the coordinates of a point w.r.t. $A$ and $p^B$ the coordinates of the same point w.r.t. $B$.
+
+To convert $p^A$ into $p^B$ (a **passive** change of coordinates), we use
 $$
-p^B = (R^A)^{-1} \cdot p^A - (R^A)^{-1} \cdot t^A \qquad (1)
+p^B = {^{B}\!R}_{A} \cdot p^A + {^{B}\!t}_{A} \qquad (1)
 $$
-
-Following our convention, the general conversion formula from $A$ to $B$ is
-
+and conversely
 $$
-p^B = {^{B}\!R}_{A} \cdot p^A + {^{B}\!t}_{A},
-$$
-
-which, by comparison with (1), gives
-$$
-{^{B}\!R}_{A} = (R^A)^{-1}, \qquad {^{B}\!t}_{A} = -\, (R^A)^{-1} \cdot t^A .
+p^A = {^{A}\!R}_{B} \cdot p^B + {^{A}\!t}_{B}. \qquad (2)
 $$
 
-At the same time we also have the relation
+From now on we focus on the $A \to B$ mapping; the reverse is analogous.
+
+The pair $({^{B}\!R}_{A},{^{B}\!t}_{A})$ maps coordinates expressed in $A$ to coordinates expressed in $B$ via (1). Note that this pair is **expressed in $B$**. By contrast, the active motion that *carried* frame $A$ to frame $B$ used $(R^A,t^A)$ **expressed in $A$**. In general $t^A \neq {^{B}\!t}_{A}$ because they live in different frames.
+
+What is the relation between the active $t^A$ and the passive ${^{B}\!t}_{A}$?  
+To map points from $A$ to $B$ we apply the inverse of the frame motion that carried $A$ to $B$: first rotate by $(R^A)^{-1}$ so the axes align, then express $t^A$ in frame $B$ (i.e., multiply by $(R^A)^{-1}$) and subtract:
 $$
-p^A = {^{A}\!R}_{B} \cdot p^B + {^{A}\!t}_{B},
+p^B = (R^A)^{-1} \cdot p^A - (R^A)^{-1} \cdot t^A. \qquad (3)
 $$
-and from (1) (by inversion) we obtain
+Multiplying (3) on the left by $R^A$ gives
 $$
-p^A = R^A \cdot p^B + t^A,
+p^A = R^A \cdot p^B + t^A. \qquad (4)
 $$
-so that
+
+Comparing (1) with (3) yields
+
+$$
+{^{B}\!R}_{A} = (R^A)^{-1}, \qquad {^{B}\!t}_{A} = - (R^A)^{-1} \cdot t^A.
+$$
+
+Comparing (2) with (4) yields
+
 $$
 {^{A}\!R}_{B} = R^A, \qquad {^{A}\!t}_{B} = t^A.
 $$
 
-This matches the intuition: to convert a point expressed w.r.t. frame $B$ into a representation w.r.t. frame $A$, we apply the the transform that maps $A$ to $B$, **(expressing that w.r.t. $A$)**.
+Equivalently,
 
-Notice that both sides of the conversion formula from $X$ to $Y$ are vectors expressed w.r.t. frame $Y$.
+$$
+{^{B}\!R}_{A} = ({^{A}\!R}_{B})^{-1}, \qquad
+{^{B}\!t}_{A} = -({^{A}\!R}_{B})^{-1} \cdot {^{A}\!t}_{B}.
+$$
 
+The pair $({^{A}\!R}_{B},{^{A}\!t}_{B})$ is the **pose of frame $B$ w.r.t. frame $A$** and it maps points expressed in $B$ to their representations expressed in $A$.
+
+---
+### Note
+Rotation matrices are orthonormal, so ${^{B}\!R}_{A} = ({^{A}\!R}_{B})^{-1} = ({^{A}\!R}_{B})^\top$.
