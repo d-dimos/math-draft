@@ -68,6 +68,7 @@ $$
 The pair $$({^{A}\!R}_{B},{^{A}\!t}_{B})$$ is the **pose of frame $B$ w.r.t. frame $A$** and it maps points expressed in $B$ to their representations expressed in $A$.
 
 ---
+---
 $\textbf{Example}$
 
 Consider a (world) frame $W$ and a camera with initial frame $C_{\text{old}}$ that is aligned with $W$. We actively rotate the camera by $10^\circ$ about $z^W$. Then we translate its center to
@@ -100,6 +101,7 @@ $$
 {^{C}\!t}_{W} = -({^{W}\!R}_{C})^{-1} \cdot {^{W}\!t}_{C}.
 $$
 
+---
 ---
 $\textbf{Note}$
 
