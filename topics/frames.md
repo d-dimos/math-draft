@@ -30,7 +30,7 @@ $$
 
 From now on we focus on the $A \to B$ mapping. The reverse is analogous.
 
-The pair $$({^{B}R}_{A},{^{B}t}_{A})$$ maps coordinates expressed in $A$ to coordinates expressed in $B$ via (1). Note that this pair is **expressed in $B$**. By contrast, the active motion that *carried* frame $A$ to frame $B$ used $(R^A,t^A)$ **expressed in $A$**. In general $t^A \neq {^{B}t}_{A}$ because they live in different frames.
+The pair $$({^{B}R}_{A},{^{B}t}_{A})$$ maps coordinates expressed in $A$ to coordinates expressed in $B$ via $(1)$. Note that this pair is **expressed in $B$**. By contrast, the active motion that *carried* frame $A$ to frame $B$ used $(R^A,t^A)$ **expressed in $A$**. In general $t^A \neq {^{B}t}_{A}$ because they live in different frames.
 
 What is the relation between the active $t^A$ and the passive ${^{B}\!t}_{A}$?  
 To map points from $A$ to $B$ we apply the inverse of the frame motion that carried $A$ to $B$: first rotate by $(R^A)^{-1}$ so the axes align, then express $t^A$ in frame $B$ (i.e., multiply by $(R^A)^{-1}$) and subtract:
