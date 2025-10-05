@@ -74,7 +74,9 @@ $$
 {^{W}\!t}_{C} =
 \begin{bmatrix}7\\2\\9\end{bmatrix}.
 $$
+
 Then
+
 $$
 p^W = {^{W}\!R}_{C}\,p^C + {^{W}\!t}_{C},
 \qquad
