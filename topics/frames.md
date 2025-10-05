@@ -83,6 +83,7 @@ $$
 \qquad
 {^{W}\!t}_{C} = \begin{bmatrix}7\\2\\9\end{bmatrix},
 $$
+
 $$
 p^W = {^{W}\!R}_{C}\cdot p^C + {^{W}\!t}_{C}
 $$
