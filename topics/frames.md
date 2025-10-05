@@ -78,9 +78,9 @@ $\textbf{Example}$
 Consider a (world) frame $W$ and a camera with initial frame $C_{\text{old}}$ that is aligned with $W$. We actively rotate the camera by $10^\circ$ about $z^W$. Then we translate its center to
 $\begin{bmatrix} 7 \\ 2 \\ 9 \end{bmatrix}$ in $W$. The final camera frame is $C$.
 
-Based on pur previous analysis:
+Based on our previous analysis:
 
-- the camera pose w.r.t. $W$ is $$\big({^WR_C}, ^Wt_C\big)$$ and it maps $$p^C \mapsto p^W$$:
+- the camera pose w.r.t. $W$ is $$\big({^W\!R_C}, {^W\!t_C}\big)$$ and it maps $$p^C \mapsto p^W$$:
 
 $$
 {^{W}\!R}_{C} = R_z(10^\circ),
