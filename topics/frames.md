@@ -63,7 +63,7 @@ $$
 = {^{A}T}_{B}\,{^{B}T}_{C}\,\begin{bmatrix}p^{C}\\[2pt]1\end{bmatrix},
 $$
 
-
+The matrix closest to the vector acts first (here $${^{B}T}_{C}$$ maps $C$ to $B$, and the left factor then maps the result to $A$).
 
 ---
 ---
