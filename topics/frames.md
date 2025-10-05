@@ -56,7 +56,7 @@ $$
 \end{bmatrix}}_{ {^{A}T}_{B} }\,\begin{bmatrix}p^B\\[2pt]1\end{bmatrix}
 $$
 
-To map point representations along consecutive frames, we post-multiply homogeneous points by consecutive transforms to their left. For instance, for a coordinate re-expression from frame $C$ to $B$ to $A$, we write:
+To map point representations along consecutive frames, we post-multiply homogeneous points by consecutive transforms to their left. For instance, to re-express a point from frame $C$ to $B$ to $A$, we write:
 
 $$
 \begin{bmatrix}p^{A}\\[2pt]1\end{bmatrix}
